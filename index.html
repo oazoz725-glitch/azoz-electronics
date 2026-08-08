@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عزوز للإلكترونيات – منذ 1992 | ملفات سماعات، أمبليفاير، قطع إلكترونية</title>
+  <meta name="description" content="عزوز للإلكترونيات – متجرك الموثوق للقطع الإلكترونية منذ 1992. ملفات سماعات، أمبليفاير، ترانزستورات، بطاريات ليثيوم، دوائر شحن وحماية.">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Font Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Extra home-specific styles */
+    .hero-content { padding: 2rem 0 4rem; }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      animation: bounce 2s infinite;
+    }
+    .scroll-indicator::after {
+      content: '↓';
+      font-size: 1.2rem;
+      color: var(--gold-dark);
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+    .hero-divider {
+      width: 50px; height: 2px;
+      background: var(--gradient-gold);
+      margin: 1.5rem 0;
+    }
+    .products-filter-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .view-all-link {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: var(--transition);
+    }
+    .view-all-link:hover { opacity: 0.8; gap: 0.6rem; }
+    #featured-products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.4rem;
+    }
+    @media (max-width: 1024px) { #featured-products { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px) { #featured-products { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { #featured-products { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body data-page="home">
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <img src="imgs/logo.jpg" alt="عزوز للإلكترونيات" class="logo-img" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:1px solid var(--gold-border);box-shadow:0 0 12px var(--gold-glow)">
+          <div class="logo-text">
+            <span class="logo-main">عزوز للإلكترونيات</span>
+            <span class="logo-sub">منذ عام 1992</span>
+          </div>
+        </a>
+
+        <div class="nav-search">
+          <input type="text" placeholder="ابحث عن منتج... (ترانزستور، ملف سماعة...)" id="main-search">
+          <span class="search-icon">🔍</span>
+          <div class="search-dropdown" id="search-dropdown"></div>
+        </div>
+
+        <div class="nav-links">
+          <a href="index.html" class="nav-link active">الرئيسية</a>
+          <a href="products.html" class="nav-link">المنتجات</a>
+          <a href="#about" class="nav-link">من نحن</a>
+          <a href="#contact" class="nav-link">تواصل</a>
+        </div>
+
+        <div class="nav-actions">
+          <a href="cart.html" class="nav-btn" title="السلة">
+            🛒
+            <span class="cart-count" style="display:none">0</span>
+          </a>
+          <button class="nav-btn" title="المفضلة">❤️</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+      <div class="hero-grid"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-tag">
+            <div class="hero-tag-dot"></div>
+            ✨ أكثر من 30 عاماً من الخبرة في الإلكترونيات
+          </div>
+
+          <h1 class="hero-title">
+            <span class="highlight">عزوز للإلكترونيات</span><br>
+            وجهتك الأولى<br>
+            للقطع الإلكترونية
+          </h1>
+
+          <div class="hero-divider"></div>
+
+          <p class="hero-desc">
+            منذ عام 1992، نوفر أجود القطع الإلكترونية من ملفات السماعات والأمبليفاير
+            إلى الترانزستورات والموسفتات والبطاريات الليثيوم وكل ما تحتاجه
+            لمشاريعك الإلكترونية.
+          </p>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="hero-stat-num" data-count="32" data-suffix="+">0+</div>
+              <div class="hero-stat-label">سنة خبرة</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num" data-count="500" data-suffix="+">0+</div>
+              <div class="hero-stat-label">منتج متاح</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num" data-count="10000" data-suffix="+">0+</div>
+              <div class="hero-stat-label">عميل راضٍ</div>
+            </div>
+          </div>
+
+          <div class="hero-cta">
+            <a href="products.html" class="btn-gold">🛒 تسوق الآن</a>
+            <a href="#about" class="btn-outline">اعرف أكثر</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-visual-card">
+            <img src="imgs/hero_electronics.jpg" alt="إلكترونيات عزوز"
+                 onerror="this.parentElement.innerHTML='<div style=\'height:450px;background:linear-gradient(135deg,#0D1424,#141C2E);display:flex;align-items:center;justify-content:center;border-radius:inherit\'><div style=\'text-align:center\'><div style=\'font-size:8rem\'>🔊</div><div style=\'font-size:1.5rem;font-weight:800;color:#D4AF37;margin-top:1rem\'>عزوز للإلكترونيات</div><div style=\'color:#A09AB0;margin-top:0.5rem\'>منذ 1992</div></div></div>'">
+            <div class="hero-float-badge hero-float-badge-1">
+              <span class="icon">⭐</span>
+              <div>
+                <div class="text-bold">جودة مضمونة</div>
+                <div class="text-sm">منذ 1992</div>
+              </div>
+            </div>
+            <div class="hero-float-badge hero-float-badge-2">
+              <span class="icon">🚚</span>
+              <div>
+                <div class="text-bold">توصيل لجميع المحافظات</div>
+                <div class="text-sm">شحن مجاني فوق 500ج</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">تمرير للأسفل</div>
+  </section>
+
+  <!-- ===== MARQUEE ===== -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <span class="marquee-item">🔊 ملفات السماعات</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">📡 أمبليفاير TDA & LM</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">⚡ ترانزستورات وموسفتات</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">🔋 بطاريات ليثيوم 18650</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">🛡️ دوائر BMS للحماية</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">🚗 كاسيت السيارة</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">💡 ICs ودوائر متكاملة</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">🔌 أدابترات ومحولات</span>
+      <span class="marquee-dot"></span>
+      <!-- Duplicate for seamless loop -->
+      <span class="marquee-item">🔊 ملفات السماعات</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">📡 أمبليفاير TDA & LM</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">⚡ ترانزستورات وموسفتات</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">🔋 بطاريات ليثيوم 18650</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">🛡️ دوائر BMS للحماية</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">🚗 كاسيت السيارة</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">💡 ICs ودوائر متكاملة</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">🔌 أدابترات ومحولات</span>
+    </div>
+  </div>
+
+  <!-- ===== CATEGORIES ===== -->
+  <section class="categories-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">📦 تصنيفاتنا</div>
+        <h2 class="section-title">كل ما تحتاجه في مكان واحد</h2>
+        <p class="section-subtitle">تخصصنا في توفير جميع القطع الإلكترونية بجودة عالية وأسعار مناسبة</p>
+      </div>
+      <div class="categories-grid" id="categories-grid"></div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED PRODUCTS ===== -->
+  <section class="products-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">🔥 الأكثر مبيعاً</div>
+        <h2 class="section-title">المنتجات المميزة</h2>
+        <p class="section-subtitle">الأكثر مبيعاً وطلباً من عملائنا</p>
+      </div>
+
+      <div class="products-filter-row">
+        <div class="filter-tabs">
+          <button class="filter-tab active" data-cat="all" onclick="filterHomeProducts(this, 'all')">الكل</button>
+          <button class="filter-tab" data-cat="speakers" onclick="filterHomeProducts(this, 'speakers')">ملفات سماعات</button>
+          <button class="filter-tab" data-cat="amplifier" onclick="filterHomeProducts(this, 'amplifier')">أمبليفاير</button>
+          <button class="filter-tab" data-cat="transistor" onclick="filterHomeProducts(this, 'transistor')">ترانزستورات</button>
+          <button class="filter-tab" data-cat="battery" onclick="filterHomeProducts(this, 'battery')">بطاريات</button>
+        </div>
+        <a href="products.html" class="view-all-link">عرض الكل ←</a>
+      </div>
+
+      <div id="featured-products"></div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-img-wrap">
+          <img class="about-img" src="imgs/about.jpg" alt="عزوز للإلكترونيات"
+               onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22500%22 height=%22400%22><rect fill=%22%230D1424%22 width=%22500%22 height=%22400%22/><text y=%22180%22 x=%22250%22 text-anchor=%22middle%22 font-size=%22100%22>🏪</text><text y=%22260%22 x=%22250%22 text-anchor=%22middle%22 font-size=%2224%22 fill=%22%23D4AF37%22>عزوز للإلكترونيات</text><text y=%22295%22 x=%22250%22 text-anchor=%22middle%22 font-size=%2216%22 fill=%22%23A09AB0%22>منذ 1992</text></svg>'">
+          <div class="about-badge-float">
+            <div class="num">32+</div>
+            <div class="label">سنة خبرة</div>
+          </div>
+        </div>
+
+        <div class="about-text">
+          <div class="badge">🏆 قصتنا</div>
+          <h2 class="section-title">عزوز للإلكترونيات</h2>
+          <p class="section-subtitle">موثوق منذ 1992</p>
+          <p class="about-desc">
+            بدأنا رحلتنا عام 1992 بهدف واحد: توفير أجود القطع الإلكترونية للمصنعين
+            والهواة والمحترفين. على مدى أكثر من 30 عاماً، بنينا سمعتنا على الجودة
+            والأمانة والأسعار المنافسة.
+          </p>
+          <p class="about-desc">
+            نتخصص في ملفات السماعات وأجهزة الصوت، الأمبليفاير بأنواعه، الترانزستورات
+            والموسفتات والسيليكونات، المقاومات والملفات، بطاريات الليثيوم ودوائر
+            الشحن والحماية، وكل ما يخص تجميعات الإلكترونيات.
+          </p>
+          <div class="about-features">
+            <div class="about-feature">
+              <span class="feature-icon">🌟</span>
+              <div class="feature-text">
+                <strong>جودة مضمونة 100%</strong>
+                <span>جميع منتجاتنا أصلية ومختبرة</span>
+              </div>
+            </div>
+            <div class="about-feature">
+              <span class="feature-icon">🚚</span>
+              <div class="feature-text">
+                <strong>توصيل لجميع محافظات مصر</strong>
+                <span>شحن مجاني على الطلبات فوق 500 جنيه</span>
+              </div>
+            </div>
+            <div class="about-feature">
+              <span class="feature-icon">💬</span>
+              <div class="feature-text">
+                <strong>دعم فني متخصص</strong>
+                <span>فريق خبراء للمساعدة في اختيار القطع المناسبة</span>
+              </div>
+            </div>
+            <div class="about-feature">
+              <span class="feature-icon">🔄</span>
+              <div class="feature-text">
+                <strong>سياسة استرجاع مرنة</strong>
+                <span>ضمان على جميع المنتجات</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.8rem">
+            <img src="imgs/logo.jpg" alt="عزوز للإلكترونيات" style="width:45px;height:45px;border-radius:50%;object-fit:cover;border:1px solid var(--gold-border)">
+            <div class="logo-main" style="font-size:1.4rem;background:var(--gradient-gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">عزوز للإلكترونيات</div>
+          </div>
+          <p>متجرك الموثوق للقطع الإلكترونية منذ عام 1992. نوفر أجود المنتجات بأفضل الأسعار مع ضمان الجودة.</p>
+          <div class="social-links" style="margin-top:1rem">
+            <a href="#" class="social-link" title="فيسبوك">📘</a>
+            <a href="https://wa.me/201065636323" target="_blank" class="social-link" title="واتساب">📱</a>
+            <a href="#" class="social-link" title="يوتيوب">📺</a>
+            <a href="#" class="social-link" title="إنستقرام">📷</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>التصنيفات</h4>
+          <ul>
+            <li><a href="products.html?cat=speakers">🔊 ملفات السماعات</a></li>
+            <li><a href="products.html?cat=amplifier">📡 أمبليفاير</a></li>
+            <li><a href="products.html?cat=transistor">⚡ ترانزستورات وموسفتات</a></li>
+            <li><a href="products.html?cat=battery">🔋 بطاريات ليثيوم</a></li>
+            <li><a href="products.html?cat=charging">🛡️ دوائر شحن وحماية</a></li>
+            <li><a href="products.html?cat=car">🚗 كاسيت السيارة</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>روابط سريعة</h4>
+          <ul>
+            <li><a href="index.html">🏠 الرئيسية</a></li>
+            <li><a href="products.html">🛍️ جميع المنتجات</a></li>
+            <li><a href="cart.html">🛒 السلة</a></li>
+            <li><a href="#about">ℹ️ من نحن</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>تواصل معنا</h4>
+          <ul>
+            <li><a href="https://wa.me/201065636323" target="_blank">📞 01065636323</a></li>
+            <li><a href="https://wa.me/201065636323" target="_blank">💬 واتساب مباشر</a></li>
+            <li><a href="#" title="عنوان المحل">📍 الفيوم - السهراية - أمام مستشفى الشفاء ومسجد الصباحية</a></li>
+            <li><a href="#">⏰ 9ص - 9م يومياً</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2024 عزوز للإلكترونيات. جميع الحقوق محفوظة. منذ عام 1992 ❤️</p>
+        <p>صُنع بـ ❤️ لعملائنا الكرام</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== CHATBOT ===== -->
+  <button class="chatbot-toggle" id="chatbot-toggle" title="مساعد عزوز الذكي">🤖</button>
+
+  <div class="chatbot-window" id="chatbot-window">
+    <div class="chatbot-header">
+      <div class="chatbot-header-info">
+        <div class="chatbot-avatar">
+          🤖
+          <div class="chatbot-online"></div>
+        </div>
+        <div>
+          <div class="chatbot-name">مساعد عزوز الذكي</div>
+          <div class="chatbot-status">● متصل الآن</div>
+        </div>
+      </div>
+      <button class="chatbot-close" id="chatbot-close">✕</button>
+    </div>
+    <div class="chatbot-messages" id="chatbot-messages"></div>
+    <div class="chatbot-input-wrap">
+      <input type="text" class="chatbot-input" id="chatbot-input" placeholder="اسألني عن أي منتج...">
+      <button class="chatbot-send" id="chatbot-send">➤</button>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script>
+    // Home-specific filter
+    function filterHomeProducts(btn, catId) {
+      document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const grid = document.getElementById('featured-products');
+      let filtered = catId === 'all'
+        ? PRODUCTS.filter(p => p.badge || p.rating >= 4.8).slice(0, 8)
+        : PRODUCTS.filter(p => p.category === catId).slice(0, 8);
+      grid.innerHTML = filtered.map(createProductCard).join('');
+      setTimeout(() => {
+        wishlist.forEach(id => {
+          const btn = document.getElementById(`wish-${id}`);
+          if (btn) { btn.textContent = '♥'; btn.classList.add('active'); }
+        });
+      }, 50);
+    }
+  </script>
+</body>
+</html>
